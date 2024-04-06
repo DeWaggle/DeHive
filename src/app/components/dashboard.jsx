@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import styles from "./dashboard.css";
+import  "./dashboard.css";
 import MyAuctionsTab from './MyAuctionsTab';
 import BiddableAuctionTab from './BiddableAuctionsTab';
 
@@ -13,13 +13,13 @@ const Dashboard = () => {
     };
 
     return (
-        <div className={styles.dashboard}>
-            <div className={styles.sidebar}>
+        <div className={"dashboard"}>
+            <div className={"sidebar"}>
                 <button onClick={() => handleChapterClick(1)}>Biddable Auctions</button>
                 <br />
                 <button onClick={() => handleChapterClick(2)}>My auctions</button>
             </div>
-            <div className={styles.content}>
+            <div className={"content"}>
                 {selectedChapter === 1 && <BiddableAuctionTab />}
                 {selectedChapter === 2 && <MyAuctionsTab />}
             </div>

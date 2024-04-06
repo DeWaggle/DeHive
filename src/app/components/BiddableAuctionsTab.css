@@ -33,8 +33,13 @@
     color: white;
     border: none;
     cursor: pointer;
+    width: 150px;
 }
 
 .popup button:last-child {
     margin-right: 0;
+}
+
+.popup button:hover {
+    background-color: #000000;
 }

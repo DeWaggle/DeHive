@@ -38,3 +38,7 @@
 .popup button:last-child {
     margin-right: 0;
 }
+
+.popup button:hover {
+    background-color: #000000;
+}
