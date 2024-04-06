@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AuctionTable = () => {
+const BiddableAuctionTable = ({ onBid }) => {
     return (
         <table>
             <thead>
@@ -18,7 +18,7 @@ const AuctionTable = () => {
                     <td><input type="text" /></td>
                     <td><input type="text" /></td>
                     <td><input type="text" /></td>
-                    <td><button>Bid</button></td>
+                    <td><button onClick={onBid}>Bid</button></td>
                 </tr>
                 {/* Add more rows as needed */}
             </tbody>
@@ -26,4 +26,4 @@ const AuctionTable = () => {
     );
 };
 
-export default AuctionTable;
+export default BiddableAuctionTable;

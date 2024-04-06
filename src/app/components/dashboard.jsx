@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import styles from "./dashboard.css";
-import AuctionTable from "./AuctionTable";
-import MyAuctionsTable from './MyAuctionsTable';
+import MyAuctionsTab from './MyAuctionsTab';
+import BiddableAuctionTab from './BiddableAuctionsTab';
 
 const Dashboard = () => {
     const [selectedChapter, setSelectedChapter] = useState(1);
@@ -20,8 +20,8 @@ const Dashboard = () => {
                 <button onClick={() => handleChapterClick(2)}>My auctions</button>
             </div>
             <div className={styles.content}>
-                {selectedChapter === 1 && <AuctionTable />}
-                {selectedChapter === 2 && <MyAuctionsTable />}
+                {selectedChapter === 1 && <BiddableAuctionTab />}
+                {selectedChapter === 2 && <MyAuctionsTab />}
             </div>
         </div>
     );
