@@ -1,6 +1,6 @@
 import React from 'react';
 import MyAuctionsTable from './MyAuctionsTable';
-import styles from './MyAuctionsTab.css';
+import './MyAuctionsTab.css';
 import Modal from 'react-modal';
 
 const MyAuctionsTab = () => {
@@ -30,10 +30,10 @@ const MyAuctionsTab = () => {
     };
 
     return (
-        <div className={styles.dashboard}>
+        <div >
             <button onClick={openPopup}>Add Auction</button>
             <MyAuctionsTable />
-            <Modal isOpen={isPopupOpen} onRequestClose={closePopup}>
+            <Modal isOpen={isPopupOpen} onRequestClose={closePopup} className={"popup"}>
                 <h1>Add Auction</h1>
                 <div>
                     <label htmlFor="prompt">Prompt:</label>
@@ -42,17 +42,17 @@ const MyAuctionsTab = () => {
                     <br />
 
                     <label htmlFor="maxPrice">Max Price:</label>
-                    <input type="text" id="maxPrice" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} />
+                    <input type="number" id="maxPrice" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} />
 
                     <br />
 
                     <label htmlFor="auctionEndDate">Auction End Date:</label>
-                    <input type="text" id="auctionEndDate" value={auctionEndDate} onChange={(e) => setAuctionEndDate(e.target.value)} />
+                    <input type="date" id="auctionEndDate" value={auctionEndDate} onChange={(e) => setAuctionEndDate(e.target.value)} />
 
                     <br />
 
                     <label htmlFor="deliveryDate">Delivery Date:</label>
-                    <input type="text" id="deliveryDate" value={deliveryDate} onChange={(e) => setDeliveryDate(e.target.value)} />
+                    <input type="date" id="deliveryDate" value={deliveryDate} onChange={(e) => setDeliveryDate(e.target.value)} />
                 </div>
                 <button onClick={closePopup}>Close</button>
                 <button onClick={confirm}>Confirm</button>

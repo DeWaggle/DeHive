@@ -15,10 +15,10 @@ const MyAuctionsTable = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="text" /></td>
-                        <td><input type="text" /></td>
-                        <td><input type="text" /></td>
-                        <td><input type="text" /></td>
+                        <td><input type="text" readOnly /></td>
+                        <td><input type="text" readOnly /></td>
+                        <td><input type="text" readOnly /></td>
+                        <td><input type="text" readOnly /></td>
                     </tr>
                     {/* Add more rows as needed */}
                 </tbody>

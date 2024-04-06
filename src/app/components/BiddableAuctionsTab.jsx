@@ -1,6 +1,7 @@
 import React from 'react';
 import BiddableAuctionTable from './BiddableAuctionTable';
 import Modal from 'react-modal';
+import './BiddableAuctionsTab.css';
 
 const BiddableAuctionTab = () => {
     const [isPopupOpen, setIsPopupOpen] = React.useState(false);
@@ -25,9 +26,9 @@ const BiddableAuctionTab = () => {
     };
 
     return (
-        <div >
+        <div>
             <BiddableAuctionTable onBid={openPopup} />
-            <Modal isOpen={isPopupOpen} onRequestClose={closePopup}>
+            <Modal isOpen={isPopupOpen} onRequestClose={closePopup} className="popup">
                 <h1>Bid on Auction</h1>
                 <div>
                     <label htmlFor="currentPrice">Current Price:</label>
@@ -36,7 +37,7 @@ const BiddableAuctionTab = () => {
                     <br />
 
                     <label htmlFor="newPrice">New Price:</label>
-                    <input type="text" id="newPrice" value={newPrice} onChange={(e) => setNewPrice(e.target.value)} />
+                    <input type="number" id="newPrice" value={newPrice} onChange={(e) => setNewPrice(e.target.value)} />
 
                 </div>
                 <button onClick={closePopup}>Close</button>

@@ -1,8 +1,9 @@
 import React from 'react';
+import './BiddableAuctionTable.css';
 
 const BiddableAuctionTable = ({ onBid }) => {
     return (
-        <table>
+        <table className='table'>
             <thead>
                 <tr>
                     <th>Price</th>
@@ -14,10 +15,10 @@ const BiddableAuctionTable = ({ onBid }) => {
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="text" /></td>
-                    <td><input type="text" /></td>
-                    <td><input type="text" /></td>
-                    <td><input type="text" /></td>
+                    <td><input type="text" readOnly /></td>
+                    <td><input type="text" readOnly /></td>
+                    <td><input type="text" readOnly /></td>
+                    <td><input type="text" readOnly /></td>
                     <td><button onClick={onBid}>Bid</button></td>
                 </tr>
                 {/* Add more rows as needed */}

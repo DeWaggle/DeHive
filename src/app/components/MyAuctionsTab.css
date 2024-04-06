@@ -1,0 +1,40 @@
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.popup h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.popup label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.popup input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.popup button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.popup button:last-child {
+    margin-right: 0;
+}
