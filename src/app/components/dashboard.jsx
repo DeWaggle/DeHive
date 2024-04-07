@@ -6,6 +6,7 @@ import MyAuctionsTab from './MyAuctionsTab';
 import BiddableAuctionTab from './BiddableAuctionsTab';
 
 const Dashboard = () => {
+
     const [selectedChapter, setSelectedChapter] = useState(1);
 
     const handleChapterClick = (chapter) => {
@@ -15,7 +16,7 @@ const Dashboard = () => {
     return (
         <div className={"dashboard"}>
             <div className={"sidebar"}>
-                <h1>DeHive</h1>
+                <img src={"./BeehiveLogo.png"} alt="Logo" />
                 <w3m-button />
                 <button onClick={() => handleChapterClick(1)}>Biddable Auctions</button>
                 <br />

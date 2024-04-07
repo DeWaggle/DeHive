@@ -30,6 +30,13 @@
     background-color: #000000;
 }
 
+.sidebar img {
+    width: 128px;
+    height: 128px;
+    margin-bottom: 20px;
+    margin-top: 8px;
+}
+
 .content {
     flex: 1 1 auto;
     padding: 20px;
