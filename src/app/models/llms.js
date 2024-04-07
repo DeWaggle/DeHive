@@ -1,5 +1,5 @@
 const LLMModels = {
-    GPT_4: 'GPT 14',
+    GPT_4: 'GPT 4',
     MIDJOURNEY: 'Midjourney',
 };
 
