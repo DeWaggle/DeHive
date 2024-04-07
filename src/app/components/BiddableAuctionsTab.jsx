@@ -9,7 +9,9 @@ const BiddableAuctionTab = () => {
     const [currentPrice, setCurrentPrice] = React.useState('');
     const [newPrice, setNewPrice] = React.useState('');
 
-    const openPopup = () => {
+    const openPopup = (auction) => {
+        setCurrentPrice(auction.price);
+        
         setIsPopupOpen(true);
     };
 
@@ -21,9 +23,13 @@ const BiddableAuctionTab = () => {
     };
 
     const confirm = () => {
-        //Add smart contract call here
-
-        closePopup();
+        if (newPrice < currentPrice) {
+            // Add smart contract call here
+            closePopup();
+        } else {
+            // Display an error message or handle the invalid input
+            alert('New price must be lower than current price');
+        }
     };
 
     let auctions = [
