@@ -13,6 +13,7 @@ const BiddableAuctionTable = ({ onBid, auctions}) => {
                     <th>Time to Bid</th>
                     <th>Time to Deliver</th>
                     <th>Description</th>
+                    <th>LLM Model</th>
                     <th>Bid</th>
                 </tr>
             </thead>
@@ -25,6 +26,7 @@ const BiddableAuctionTable = ({ onBid, auctions}) => {
                                 <td><input type="text" readOnly value={auction.timeToBid} /></td>
                                 <td><input type="text" readOnly value={auction.timeToDeliver} /></td>
                                 <td><input type="text" readOnly value={auction.description} /></td>
+                                <td><input type="text" readOnly value={auction.llm} /></td>
                                 <td><button onClick={() => onBid(auction)}>Bid</button></td>
                             </tr>
                         );

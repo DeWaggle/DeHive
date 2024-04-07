@@ -1,6 +1,7 @@
 import React from 'react';
 import './MyAuctionsTable.css';
 
+
 const MyAuctionsTable = (auctions) => {
 
     const auctionArray = Object.values(auctions);
@@ -14,6 +15,7 @@ const MyAuctionsTable = (auctions) => {
                         <th>Time to Bid</th>
                         <th>Time to Deliver</th>
                         <th>Description</th>
+                        <th>LLM Model</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,6 +26,7 @@ const MyAuctionsTable = (auctions) => {
                                 <td><input type="text" readOnly value={auction.timeToBid} /></td>
                                 <td><input type="text" readOnly value={auction.timeToDeliver} /></td>
                                 <td><input type="text" readOnly value={auction.description} /></td>
+                                <td><input type="text" readOnly value={auction.llm} /></td>
                             </tr>
                         );
                     })}

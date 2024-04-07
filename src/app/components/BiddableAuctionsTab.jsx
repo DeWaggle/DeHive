@@ -3,6 +3,7 @@ import BiddableAuctionTable from './BiddableAuctionTable';
 import Modal from 'react-modal';
 import './BiddableAuctionsTab.css';
 import Auction from '../models/auction';
+import LLMModels from '../models/llms';
 
 const BiddableAuctionTab = () => {
     const [isPopupOpen, setIsPopupOpen] = React.useState(false);
@@ -11,11 +12,11 @@ const BiddableAuctionTab = () => {
     const [currentAuction, setCurrentAuction] = React.useState('');
 
     const [displayedAuctions, setAuctions] = React.useState([
-        new Auction(100, '2022-12-31', '2023-01-15', 'Auction 1'),
-        new Auction(200, '2022-12-31', '2023-01-15', 'Auction 2'),
-        new Auction(300, '2022-12-31', '2023-01-15', 'Auction 3'),
-        new Auction(400, '2022-12-31', '2023-01-15', 'Auction 4'),
-        new Auction(500, '2022-12-31', '2023-01-15', 'Auction 5')
+        new Auction(100, '2022-12-31', '2023-01-15', 'Auction 1', LLMModels.GPT_4),
+        new Auction(200, '2022-12-31', '2023-01-15', 'Auction 2', LLMModels.MIDJOURNEY),
+        new Auction(300, '2022-12-31', '2023-01-15', 'Auction 3', LLMModels.GPT_4),
+        new Auction(400, '2022-12-31', '2023-01-15', 'Auction 4', LLMModels.MIDJOURNEY),
+        new Auction(500, '2022-12-31', '2023-01-15', 'Auction 5', LLMModels.GPT_4)
     ]);    
 
     const openPopup = (auction) => {

@@ -2,7 +2,8 @@ import React from 'react';
 import MyAuctionsTable from './MyAuctionsTable';
 import './MyAuctionsTab.css';
 import Modal from 'react-modal';
-import Auction from '../models/auction'; // Import the Auction class from the correct file
+import Auction from '../models/auction'; 
+import LLMModels from '../models/llms';
 
 const MyAuctionsTab = () => {
     const [isPopupOpen, setIsPopupOpen] = React.useState(false);
@@ -10,13 +11,14 @@ const MyAuctionsTab = () => {
     const [maxPrice, setMaxPrice] = React.useState('');
     const [auctionEndDate, setAuctionEndDate] = React.useState('');
     const [deliveryDate, setDeliveryDate] = React.useState('');
+    const [llmModel, setLLMModel] = React.useState("");
 
     const [displayedAuctions, setAuctions] = React.useState([
-        new Auction(100, '2022-12-31', '2023-01-15', 'Auction 1'),
-        new Auction(200, '2022-12-31', '2023-01-15', 'Auction 2'),
-        new Auction(300, '2022-12-31', '2023-01-15', 'Auction 3'),
-        new Auction(400, '2022-12-31', '2023-01-15', 'Auction 4'),
-        new Auction(500, '2022-12-31', '2023-01-15', 'Auction 5')
+        new Auction(100, '2022-12-31', '2023-01-15', 'Auction 1', LLMModels.GPT_4),
+        new Auction(200, '2022-12-31', '2023-01-15', 'Auction 2', LLMModels.MIDJOURNEY),
+        new Auction(300, '2022-12-31', '2023-01-15', 'Auction 3', LLMModels.GPT_4),
+        new Auction(400, '2022-12-31', '2023-01-15', 'Auction 4', LLMModels.MIDJOURNEY),
+        new Auction(500, '2022-12-31', '2023-01-15', 'Auction 5', LLMModels.GPT_4)
     ]);  
 
     const openPopup = () => {
@@ -28,6 +30,7 @@ const MyAuctionsTab = () => {
         setMaxPrice('');
         setAuctionEndDate('');
         setDeliveryDate('');
+        setLLMModel('');
 
         setIsPopupOpen(false);
     };
@@ -35,16 +38,16 @@ const MyAuctionsTab = () => {
     const confirm = () => {
         //Add smart contract call here
 
-        const newAuction = new Auction(maxPrice, auctionEndDate, deliveryDate, prompt);
+        const newAuction = new Auction(maxPrice, auctionEndDate, deliveryDate, prompt, llmModel);
         setAuctions([...displayedAuctions, newAuction]);
 
         closePopup();
     };
 
     return (
-        <div >
+        <div>
             <button onClick={openPopup}>Add Auction</button>
-            <MyAuctionsTable auctions={displayedAuctions}/>
+            <MyAuctionsTable auctions={displayedAuctions} />
             <Modal isOpen={isPopupOpen} onRequestClose={closePopup} className={"popup"}>
                 <h1>Add Auction</h1>
                 <div>
@@ -65,6 +68,14 @@ const MyAuctionsTab = () => {
 
                     <label htmlFor="deliveryDate">Delivery Date:</label>
                     <input type="date" id="deliveryDate" value={deliveryDate} onChange={(e) => setDeliveryDate(e.target.value)} />
+
+                    <br />
+
+                    <label htmlFor="llmModel">LLM Model:</label>
+                    <select id="llmModel" value={llmModel} onChange={(e) => setLLMModel(e.target.value)}>
+                        <option value={LLMModels.GPT_4}>GPT 4</option>
+                        <option value={LLMModels.MIDJOURNEY}>Midjourney</option>
+                    </select>
                 </div>
                 <button onClick={closePopup}>Close</button>
                 <button onClick={confirm}>Confirm</button>
