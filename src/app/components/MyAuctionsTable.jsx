@@ -14,7 +14,7 @@ const MyAuctionsTable = (auctions) => {
                         <th>Price</th>
                         <th>Time to Bid</th>
                         <th>Time to Deliver</th>
-                        <th>Description</th>
+                        <th>Prompt</th>
                         <th>LLM Model</th>
                     </tr>
                 </thead>
