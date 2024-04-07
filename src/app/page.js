@@ -9,6 +9,13 @@ import { createWeb3Modal, defaultConfig } from '@web3modal/ethers5/react'
 const projectId = 'acbcdbac4595f385adf355383a022163'
 
 // 2. Set chains
+const xrpl = {
+  chainId: 1440002,
+  name: 'XRPL',
+  currency: 'XRP',
+  explorerUrl: 'https://evm-sidechain.xrpl.org/',
+  rpcUrl: 'https://rpc-evm-sidechain.xrpl.org/'
+}
 const mainnet = {
   chainId: 1,
   name: 'Ethereum',
@@ -41,7 +48,7 @@ const ethersConfig = defaultConfig({
 // 5. Create a Web3Modal instance
 createWeb3Modal({
   ethersConfig,
-  chains: [mainnet],
+  chains: [xrpl, mainnet],
   projectId,
   enableAnalytics: true // Optional - defaults to your Cloud configuration
 })
