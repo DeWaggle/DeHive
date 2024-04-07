@@ -15,6 +15,8 @@ const Dashboard = () => {
     return (
         <div className={"dashboard"}>
             <div className={"sidebar"}>
+                <h1>DeHive</h1>
+                <w3m-button />
                 <button onClick={() => handleChapterClick(1)}>Biddable Auctions</button>
                 <br />
                 <button onClick={() => handleChapterClick(2)}>My auctions</button>
