@@ -11,6 +11,14 @@ const MyAuctionsTab = () => {
     const [auctionEndDate, setAuctionEndDate] = React.useState('');
     const [deliveryDate, setDeliveryDate] = React.useState('');
 
+    const [displayedAuctions, setAuctions] = React.useState([
+        new Auction(100, '2022-12-31', '2023-01-15', 'Auction 1'),
+        new Auction(200, '2022-12-31', '2023-01-15', 'Auction 2'),
+        new Auction(300, '2022-12-31', '2023-01-15', 'Auction 3'),
+        new Auction(400, '2022-12-31', '2023-01-15', 'Auction 4'),
+        new Auction(500, '2022-12-31', '2023-01-15', 'Auction 5')
+    ]);  
+
     const openPopup = () => {
         setIsPopupOpen(true);
     };
@@ -27,21 +35,16 @@ const MyAuctionsTab = () => {
     const confirm = () => {
         //Add smart contract call here
 
+        const newAuction = new Auction(maxPrice, auctionEndDate, deliveryDate, prompt);
+        setAuctions([...displayedAuctions, newAuction]);
+
         closePopup();
     };
-
-    let auctions = [
-        new Auction(100, '2022-12-31', '2023-01-15', 'Auction 1'),
-        new Auction(200, '2022-12-31', '2023-01-15', 'Auction 2'),
-        new Auction(300, '2022-12-31', '2023-01-15', 'Auction 3'),
-        new Auction(400, '2022-12-31', '2023-01-15', 'Auction 4'),
-        new Auction(500, '2022-12-31', '2023-01-15', 'Auction 5')
-    ];
 
     return (
         <div >
             <button onClick={openPopup}>Add Auction</button>
-            <MyAuctionsTable auctions={auctions}/>
+            <MyAuctionsTable auctions={displayedAuctions}/>
             <Modal isOpen={isPopupOpen} onRequestClose={closePopup} className={"popup"}>
                 <h1>Add Auction</h1>
                 <div>
