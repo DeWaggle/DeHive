@@ -1,7 +1,10 @@
 import React from 'react';
 import './BiddableAuctionTable.css';
 
-const BiddableAuctionTable = ({ onBid }) => {
+const BiddableAuctionTable = ({ onBid, auctions}) => {
+
+    const auctionArray = auctions
+
     return (
         <table className='table'>
             <thead>
@@ -14,14 +17,19 @@ const BiddableAuctionTable = ({ onBid }) => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><input type="text" readOnly /></td>
-                    <td><input type="text" readOnly /></td>
-                    <td><input type="text" readOnly /></td>
-                    <td><input type="text" readOnly /></td>
-                    <td><button onClick={onBid}>Bid</button></td>
-                </tr>
-                {/* Add more rows as needed */}
+                
+                    {auctionArray.map(function(auction) {
+                        return (
+                            <tr key={auctionArray.indexOf(auction)}>
+                                <td><input type="text" readOnly value={auction.price} /></td>
+                                <td><input type="text" readOnly value={auction.timeToBid} /></td>
+                                <td><input type="text" readOnly value={auction.timeToDeliver} /></td>
+                                <td><input type="text" readOnly value={auction.description} /></td>
+                                <td><button onClick={onBid}>Bid</button></td>
+                            </tr>
+                        );
+                    })}
+                
             </tbody>
         </table>
     );

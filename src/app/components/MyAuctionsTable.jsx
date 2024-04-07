@@ -1,10 +1,13 @@
 import React from 'react';
+import './MyAuctionsTable.css';
 
-const MyAuctionsTable = () => {
+const MyAuctionsTable = (auctions) => {
+
+    const auctionArray = Object.values(auctions);
 
     return (
         <div>
-            <table>
+            <table className="table">
                 <thead>
                     <tr>
                         <th>Price</th>
@@ -14,13 +17,16 @@ const MyAuctionsTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><input type="text" readOnly /></td>
-                        <td><input type="text" readOnly /></td>
-                        <td><input type="text" readOnly /></td>
-                        <td><input type="text" readOnly /></td>
-                    </tr>
-                    {/* Add more rows as needed */}
+                    {auctionArray[0].map(function(auction) {
+                        return (
+                            <tr key={auctionArray.indexOf(auction)}>
+                                <td><input type="text" readOnly value={auction.price} /></td>
+                                <td><input type="text" readOnly value={auction.timeToBid} /></td>
+                                <td><input type="text" readOnly value={auction.timeToDeliver} /></td>
+                                <td><input type="text" readOnly value={auction.description} /></td>
+                            </tr>
+                        );
+                    })}
                 </tbody>
             </table>
         </div>

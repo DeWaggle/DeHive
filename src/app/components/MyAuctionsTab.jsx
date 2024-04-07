@@ -2,6 +2,7 @@ import React from 'react';
 import MyAuctionsTable from './MyAuctionsTable';
 import './MyAuctionsTab.css';
 import Modal from 'react-modal';
+import Auction from '../models/auction'; // Import the Auction class from the correct file
 
 const MyAuctionsTab = () => {
     const [isPopupOpen, setIsPopupOpen] = React.useState(false);
@@ -29,10 +30,18 @@ const MyAuctionsTab = () => {
         closePopup();
     };
 
+    let auctions = [
+        new Auction(100, '2022-12-31', '2023-01-15', 'Auction 1'),
+        new Auction(200, '2022-12-31', '2023-01-15', 'Auction 2'),
+        new Auction(300, '2022-12-31', '2023-01-15', 'Auction 3'),
+        new Auction(400, '2022-12-31', '2023-01-15', 'Auction 4'),
+        new Auction(500, '2022-12-31', '2023-01-15', 'Auction 5')
+    ];
+
     return (
         <div >
             <button onClick={openPopup}>Add Auction</button>
-            <MyAuctionsTable />
+            <MyAuctionsTable auctions={auctions}/>
             <Modal isOpen={isPopupOpen} onRequestClose={closePopup} className={"popup"}>
                 <h1>Add Auction</h1>
                 <div>
